@@ -3,7 +3,6 @@ package com.example.joinpractice.service;
 import com.example.joinpractice.domain.User;
 import com.example.joinpractice.domain.dto.UserDto;
 import com.example.joinpractice.domain.dto.UserJoinRequest;
-import com.example.joinpractice.domain.dto.UserLoginRequest;
 import com.example.joinpractice.domain.exception.ErrorCode;
 import com.example.joinpractice.domain.exception.JoinException;
 import com.example.joinpractice.repository.UserRepository;
@@ -12,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 @RequiredArgsConstructor
