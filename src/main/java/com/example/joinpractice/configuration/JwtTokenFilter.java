@@ -1,5 +1,6 @@
 package com.example.joinpractice.configuration;
 
+import com.example.joinpractice.domain.User;
 import com.example.joinpractice.service.UserService;
 import com.example.joinpractice.utils.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
@@ -53,6 +54,15 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return;
         };
+
+        //userName 꺼내기
+        String userName = JwtTokenUtil.getUserName(token, secretKey);
+        log.info("userName:{}",userName);
+
+        //UserDetail가져오기
+        User user = userService.getUserByUserName(userName);
+        log.info("userRole:{}", user.getRole());
+
 
         //권한 여부 결정
         //현재는 막아놓은 상태

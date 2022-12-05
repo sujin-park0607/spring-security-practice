@@ -12,6 +12,10 @@ public class JwtTokenUtil {
         return Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
     }
 
+    public static String getUserName(String token, String key){
+        return extractClaims(token, key).get("userName").toString();
+    }
+
     public static boolean isExpired(String token, String key) {
         Date expiredDate = extractClaims(token, key).getExpiration();//expire timestamp를 return함
         return expiredDate.before(new Date());

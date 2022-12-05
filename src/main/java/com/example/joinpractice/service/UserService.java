@@ -47,4 +47,9 @@ public class UserService {
         return JwtTokenUtil.createToken(userName, key, expireTimeMs);
 
     }
+
+    public User getUserByUserName(String userName) {
+        return userRepository.findByUserName(userName)
+                .orElseThrow(() -> new JoinException(ErrorCode.USERNAME_NOT_FOUND,""));
+    }
 }
